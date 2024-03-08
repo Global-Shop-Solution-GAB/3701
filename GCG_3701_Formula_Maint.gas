@@ -1,0 +1,470 @@
+program.sub.screenSU.start
+gui.Form1..create
+gui.Form1..caption("Formula Maintenance")
+gui.Form1..size(10470,4290)
+gui.Form1..minx(0)
+gui.Form1..miny(0)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(False)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+
+gui.Form1.tabxFormula.create(tab)
+gui.Form1.tabxFormula.tabs(8)
+gui.Form1.tabxFormula.tabsperrow(8)
+gui.Form1.tabxFormula.settab(0)
+gui.Form1.tabxFormula.caption("Laser Runtime")
+gui.Form1.tabxFormula.settab(1)
+gui.Form1.tabxFormula.caption("Deburr")
+gui.Form1.tabxFormula.settab(2)
+gui.Form1.tabxFormula.caption("Timesaver Runtime")
+gui.Form1.tabxFormula.settab(3)
+gui.Form1.tabxFormula.caption("Welding Station 1")
+gui.Form1.tabxFormula.settab(4)
+gui.Form1.tabxFormula.caption("Polisher Runtime")
+gui.Form1.tabxFormula.settab(5)
+gui.Form1.tabxFormula.caption("Inspection")
+gui.Form1.tabxFormula.settab(6)
+gui.Form1.tabxFormula.caption("KMT Saw")
+gui.Form1.tabxFormula.settab(7)
+gui.Form1.tabxFormula.caption("RAS Bender")
+gui.Form1.tabxFormula.size(9885,2925)
+gui.Form1.tabxFormula.position(200,200)
+gui.Form1.tabxFormula.visible(True)
+gui.Form1.tabxFormula.fontname("Arial")
+gui.Form1.tabxFormula.fontsize(8)
+gui.Form1.cmdDone.create(button)
+gui.Form1.cmdDone.caption("Done")
+gui.Form1.cmdDone.visible(True)
+gui.Form1.cmdDone.size(855,375)
+gui.Form1.cmdDone.zorder(0)
+gui.Form1.cmdDone.position(300,3250)
+gui.Form1.cmdDone.enabled(True)
+gui.Form1.cmdDone.fontname("Arial")
+gui.Form1.cmdDone.fontsize(8)
+gui.Form1.cmdDone.event(click,cmddone_click)
+gui.Form1.cmdDone.defaultvalue("")
+gui.Form1.cmdDone.controlgroup(0)
+gui.Form1.lblSheet.create(label,"Sheet Metal Thickness = ",True,1815,255,1,3150,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lblSheet.parent("tabxformula",0)
+gui.Form1.lblSheet.defaultvalue("")
+gui.Form1.lblSheet.controlgroup(0)
+gui.Form1.txtLSheetMetal.create(textbox,"",True,750,300,0,1175,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtLSheetMetal.parent("tabxformula",0)
+gui.Form1.txtLSheetMetal.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtLSheetMetal.defaultvalue("")
+gui.Form1.txtLSheetMetal.controlgroup(0)
+gui.Form1.lbl2.create(label,"(Cutting Length-Inner  + Cutting Length-Outer) / ((",True,3870,300,1,200,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl2.parent("tabxformula",0)
+gui.Form1.lbl2.defaultvalue("")
+gui.Form1.lbl2.controlgroup(0)
+gui.Form1.txtLV1.create(textbox,"",True,780,300,0,3830,1200,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtLV1.parent("tabxformula",0)
+gui.Form1.txtLV1.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtLV1.defaultvalue("")
+gui.Form1.txtLV1.controlgroup(0)
+gui.Form1.lbl3.create(label,"* Sheet Metal Thickness) +",True,2115,300,1,4760,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl3.parent("tabxformula",0)
+gui.Form1.lbl3.defaultvalue("")
+gui.Form1.lbl3.controlgroup(0)
+gui.Form1.txtLV2.create(textbox,"",True,735,300,0,6705,1200,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtLV2.parent("tabxformula",0)
+gui.Form1.txtLV2.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtLV2.defaultvalue("")
+gui.Form1.txtLV2.controlgroup(0)
+gui.Form1.lbl4.create(label,")",True,225,300,1,7460,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl4.parent("tabxformula",0)
+gui.Form1.lbl4.defaultvalue("")
+gui.Form1.lbl4.controlgroup(0)
+gui.Form1.lbl5.create(label,"(Cutting Length-Inner + Cutting Length-Outer) / ",True,3660,255,1,200,1900,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl5.parent("tabxformula",0)
+gui.Form1.lbl5.defaultvalue("")
+gui.Form1.lbl5.controlgroup(0)
+gui.Form1.txtLV3.create(textbox,"",True,630,300,0,3585,1900,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtLV3.parent("tabxformula",0)
+gui.Form1.txtLV3.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtLV3.defaultvalue("")
+gui.Form1.txtLV3.controlgroup(0)
+gui.Form1.lbl6.create(label,"Bounding Box Area: ",True,1485,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl6.parent("tabxformula",1)
+gui.Form1.lbl6.defaultvalue("")
+gui.Form1.lbl6.controlgroup(0)
+gui.Form1.txtDBound.create(textbox,"",True,690,300,0,1700,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtDBound.parent("tabxformula",1)
+gui.Form1.txtDBound.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtDBound.defaultvalue("")
+gui.Form1.txtDBound.controlgroup(0)
+gui.Form1.lblDSheet.create(label,"Sheet Metal Thickness:",True,1665,255,1,2900,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lblDSheet.parent("tabxformula",1)
+gui.Form1.lblDSheet.defaultvalue("")
+gui.Form1.lblDSheet.controlgroup(0)
+gui.Form1.txtDSheet.create(textbox,"",True,720,300,0,4670,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtDSheet.parent("tabxformula",1)
+gui.Form1.txtDSheet.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtDSheet.defaultvalue("")
+gui.Form1.txtDSheet.controlgroup(0)
+gui.Form1.lbl8.create(label,"(CuttingLength-Inner + CuttingLength-Outer) / ",True,3720,240,1,200,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl8.parent("tabxformula",1)
+gui.Form1.lbl8.defaultvalue("")
+gui.Form1.lbl8.controlgroup(0)
+gui.Form1.txtDV1.create(textbox,"",True,540,300,0,3585,1200,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtDV1.parent("tabxformula",1)
+gui.Form1.txtDV1.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtDV1.defaultvalue("")
+gui.Form1.txtDV1.controlgroup(0)
+gui.Form1.lbl9.create(label,"(HoleCount *",True,1035,255,1,300,1900,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl9.parent("tabxformula",1)
+gui.Form1.lbl9.defaultvalue("")
+gui.Form1.lbl9.controlgroup(0)
+gui.Form1.txtDV2.create(textbox,"",True,615,300,0,1250,1900,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtDV2.parent("tabxformula",1)
+gui.Form1.txtDV2.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtDV2.defaultvalue("")
+gui.Form1.txtDV2.controlgroup(0)
+gui.Form1.lbl10.create(label,")",True,165,255,1,1890,1900,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl10.parent("tabxformula",1)
+gui.Form1.lbl10.defaultvalue("")
+gui.Form1.lbl10.controlgroup(0)
+gui.Form1.lbl11.create(label,"If Washdown RunTime = ",True,1845,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl11.parent("tabxformula",2)
+gui.Form1.lbl11.defaultvalue("")
+gui.Form1.lbl11.controlgroup(0)
+gui.Form1.txtTSRun.create(textbox,"",True,750,300,0,2100,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtTSRun.parent("tabxformula",2)
+gui.Form1.txtTSRun.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtTSRun.defaultvalue("")
+gui.Form1.txtTSRun.controlgroup(0)
+gui.Form1.lbl12.create(label,"Bends > 0  (Bends * ",True,1500,255,1,200,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl12.parent("tabxformula",7)
+gui.Form1.lbl12.defaultvalue("")
+gui.Form1.lbl12.controlgroup(0)
+gui.Form1.txtTSV1.create(textbox,"",True,660,300,0,1700,1200,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtTSV1.parent("tabxformula",7)
+gui.Form1.txtTSV1.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtTSV1.defaultvalue("")
+gui.Form1.txtTSV1.controlgroup(0)
+gui.Form1.lbl13.create(label,")",True,270,255,1,2410,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl13.parent("tabxformula",7)
+gui.Form1.lbl13.defaultvalue("")
+gui.Form1.lbl13.controlgroup(0)
+gui.Form1.lbl14.create(label,"TimeWeld > 0",True,1005,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl14.parent("tabxformula",3)
+gui.Form1.lbl14.defaultvalue("")
+gui.Form1.lbl14.controlgroup(0)
+gui.Form1.txtWV1.create(textbox,"",True,525,300,0,1300,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtWV1.parent("tabxformula",3)
+gui.Form1.txtWV1.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtWV1.defaultvalue("")
+gui.Form1.txtWV1.controlgroup(0)
+gui.Form1.lbl15.create(label,"Min on Welding Station",True,1935,255,1,1900,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl15.parent("tabxformula",3)
+gui.Form1.lbl15.defaultvalue("")
+gui.Form1.lbl15.controlgroup(0)
+gui.Form1.lbl16.create(label,"Washdown TimeWeld / ",True,1725,255,1,150,240,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl16.parent("tabxformula",4)
+gui.Form1.lbl16.defaultvalue("")
+gui.Form1.lbl16.controlgroup(0)
+gui.Form1.txtPV1.create(textbox,"",True,705,300,0,2000,240,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtPV1.parent("tabxformula",4)
+gui.Form1.txtPV1.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtPV1.defaultvalue("")
+gui.Form1.txtPV1.controlgroup(0)
+gui.Form1.lbl17.create(label,"Non Washdown TimeWeld /",True,2295,255,1,200,1200,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl17.parent("tabxformula",4)
+gui.Form1.lbl17.defaultvalue("")
+gui.Form1.lbl17.controlgroup(0)
+gui.Form1.txtPV2.create(textbox,"",True,675,300,0,2300,1200,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtPV2.parent("tabxformula",4)
+gui.Form1.txtPV2.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtPV2.defaultvalue("")
+gui.Form1.txtPV2.controlgroup(0)
+gui.Form1.lbl18.create(label,"Setup Time = ",True,990,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl18.parent("tabxformula",5)
+gui.Form1.lbl18.defaultvalue("")
+gui.Form1.lbl18.controlgroup(0)
+gui.Form1.txtISetup.create(textbox,"",True,705,300,0,1200,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtISetup.parent("tabxformula",5)
+gui.Form1.txtISetup.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtISetup.defaultvalue("")
+gui.Form1.txtISetup.controlgroup(0)
+gui.Form1.lbl19.create(label,"Laser Set = ",True,900,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl19.parent("tabxformula",0)
+gui.Form1.lbl19.defaultvalue("")
+gui.Form1.lbl19.controlgroup(0)
+gui.Form1.txtSheetMetal.create(textbox,"",True,660,300,0,5050,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtSheetMetal.parent("tabxformula",0)
+gui.Form1.txtSheetMetal.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtSheetMetal.defaultvalue("")
+gui.Form1.txtSheetMetal.controlgroup(0)
+gui.Form1.lbl20.create(label,"Setup = ",True,1935,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl20.parent("tabxformula",6)
+gui.Form1.lbl20.defaultvalue("")
+gui.Form1.lbl20.controlgroup(0)
+gui.Form1.txtRMSetup.create(textbox,"",True,720,300,0,800,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtRMSetup.parent("tabxformula",6)
+gui.Form1.txtRMSetup.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtRMSetup.defaultvalue("")
+gui.Form1.txtRMSetup.controlgroup(0)
+gui.Form1.lbl21.create(label,"RunTime = ",True,855,255,1,1800,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lbl21.parent("tabxformula",6)
+gui.Form1.lbl21.defaultvalue("")
+gui.Form1.lbl21.controlgroup(0)
+gui.Form1.txtRMRuntime.create(textbox,"",True,1215,300,0,2600,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtRMRuntime.parent("tabxformula",6)
+gui.Form1.txtRMRuntime.event(lostfocus,txtlsheetmetal_lostfocus)
+gui.Form1.txtRMRuntime.defaultvalue("")
+gui.Form1.txtRMRuntime.controlgroup(0)
+gui.Form1.lblRAS.create(label,"RAS Setup Time",True,1260,255,1,200,600,True,0,Arial,8,-2147483633,0 )
+gui.Form1.lblRAS.parent("tabxformula",7)
+gui.Form1.lblRAS.defaultvalue("")
+gui.Form1.lblRAS.controlgroup(0)
+gui.Form1.txtRAS.create(textbox,"",True,810,300,0,1500,600,True,0,Arial,8,-2147483643,1 )
+gui.Form1.txtRAS.parent("tabxformula",7)
+gui.Form1.txtRAS.defaultvalue("")
+gui.Form1.txtRAS.controlgroup(0)
+program.sub.screenSU.end
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iCount.Declare(Long)
+
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+
+'Check to see if there is information in the table
+'if there is then populate the controls
+V.Local.sSql.Set("Select * From GCG_3701_Formula_Val")
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSql,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+V.Local.sRet.RedimPreserve(0,17)
+
+F.Intrinsic.Control.For(V.Local.iCount,V.Local.sRet.LBound,V.Local.sRet.UBound,1)
+	F.Intrinsic.Control.If(V.Local.sRet(v.Local.iCount),!=,"")
+		F.Intrinsic.Control.SelectCase(V.Local.iCount)
+			F.Intrinsic.Control.Case(0)
+				Gui.Form1.txtLSheetMetal.Text(V.Local.sRet(0))
+			F.Intrinsic.Control.Case(1)
+				Gui.Form1.txtLV1.Text(V.Local.sRet(1))
+			F.Intrinsic.Control.Case(2)
+				Gui.Form1.txtLV2.Text(V.Local.sRet(2))
+			F.Intrinsic.Control.Case(3)
+				Gui.Form1.txtLV3.Text(V.Local.sRet(3))
+			F.Intrinsic.Control.Case(4)
+				Gui.Form1.txtDBound.Text(V.Local.sRet(4))
+			F.Intrinsic.Control.Case(5)
+				Gui.Form1.txtDSheet.Text(V.Local.sRet(5))
+			F.Intrinsic.Control.Case(6)
+				Gui.Form1.txtDV1.Text(V.Local.sRet(6))
+			F.Intrinsic.Control.Case(7)
+				Gui.Form1.txtDV2.Text(V.Local.sRet(7))
+			F.Intrinsic.Control.Case(8)
+				Gui.Form1.txtTSRun.Text(V.Local.sRet(8))
+			F.Intrinsic.Control.Case(9)
+				Gui.Form1.txtTSV1.Text(V.Local.sRet(9))
+			F.Intrinsic.Control.Case(10)
+				Gui.Form1.txtWV1.Text(V.Local.sRet(10))
+			F.Intrinsic.Control.Case(11)
+				Gui.Form1.txtPV1.Text(V.Local.sRet(11))
+			F.Intrinsic.Control.Case(12)
+				Gui.Form1.txtPV2.Text(V.Local.sRet(12))
+			F.Intrinsic.Control.Case(13)
+				Gui.Form1.txtISetup.Text(V.Local.sRet(13))
+			F.Intrinsic.Control.Case(14)
+				Gui.Form1.txtSheetMetal.Text(V.Local.sRet(14))
+			F.Intrinsic.Control.Case(15)
+				Gui.Form1.txtRMSetup.Text(V.Local.sRet(15))
+			F.Intrinsic.Control.Case(16)
+				Gui.Form1.txtRMRuntime.Text(V.Local.sRet(16))
+			F.Intrinsic.Control.Case(17)
+				Gui.Form1.txtRAS.Text(V.Local.sRet(17))
+		F.Intrinsic.Control.EndSelect
+		F.Intrinsic.Control.DoEvents
+	F.Intrinsic.Control.Else
+
+	'If no data is returned then populate the controls with the default values.
+		F.Intrinsic.Control.SelectCase(V.Local.iCount)
+			F.Intrinsic.Control.Case(0)
+				Gui.Form1.txtLSheetMetal.Text("0.5")
+			F.Intrinsic.Control.Case(1)
+				Gui.Form1.txtLV1.Text("-142.52")
+			F.Intrinsic.Control.Case(2)
+				Gui.Form1.txtLV2.Text("81.429")
+			F.Intrinsic.Control.Case(3)
+				Gui.Form1.txtLV3.Text("10")
+			F.Intrinsic.Control.Case(4)
+				Gui.Form1.txtDBound.Text("15")
+			F.Intrinsic.Control.Case(5)
+				Gui.Form1.txtDSheet.Text("0.250")
+			F.Intrinsic.Control.Case(6)
+				Gui.Form1.txtDV1.Text("32")
+			F.Intrinsic.Control.Case(7)
+				Gui.Form1.txtDV2.Text("2.5")
+			F.Intrinsic.Control.Case(8)
+				Gui.Form1.txtTSRun.Text("3")
+			F.Intrinsic.Control.Case(9)
+				Gui.Form1.txtTSV1.Text("7")
+			F.Intrinsic.Control.Case(10)
+				Gui.Form1.txtWV1.Text("15")
+			F.Intrinsic.Control.Case(11)
+				Gui.Form1.txtPV1.Text("2")
+			F.Intrinsic.Control.Case(12)
+				Gui.Form1.txtPV2.Text("4")
+			F.Intrinsic.Control.Case(13)
+				Gui.Form1.txtISetup.Text("1")
+			F.Intrinsic.Control.Case(14)
+				Gui.Form1.txtSheetMetal.Text("15")
+			F.Intrinsic.Control.Case(15)
+				Gui.Form1.txtRMSetup.Text("10")
+			F.Intrinsic.Control.Case(16)
+				Gui.Form1.txtRMRuntime.Text("3")
+			F.Intrinsic.Control.Case(17)
+				Gui.Form1.txtRAS.Text("7")
+		F.Intrinsic.Control.EndSelect
+		F.Intrinsic.Control.DoEvents
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+
+Gui.Form1..Show
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3701_Formula_Maint.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+program.sub.form1_unload.start
+F.Intrinsic.Control.SetErrorHandler("form1_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("form1_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3701_Formula_Maint.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.form1_unload.end
+
+program.sub.cmddone_click.start
+F.Intrinsic.Control.SetErrorHandler("cmddone_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+
+'Save the Values to the Table
+
+V.Local.sSql.Set("Select * From GCG_3701_Formula_Val")
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rstVal",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rstVal.EOF,=,True)
+	F.ODBC.con!rstVal.AddNew
+F.Intrinsic.Control.EndIf
+
+F.ODBC.con!rstVal.set!Laser_Sheet_Metal(V.Screen.Form1!txtLSheetMetal.Text)
+F.ODBC.con!rstVal.Set!Laser_Value_1(V.Screen.Form1!txtLV1.Text)
+F.ODBC.con!rstVal.set!Laser_Value_2(V.Screen.Form1!txtLV2.Text)
+F.ODBC.con!rstVal.set!Laser_Value_3(V.Screen.Form1!txtLV3.Text)
+F.ODBC.con!rstVal.set!Deburr_Bound_Box(V.Screen.Form1!txtDBound.Text)
+F.ODBC.con!rstVal.set!Deburr_Sheet_Metal(V.Screen.Form1!txtSheetMetal.Text)
+F.ODBC.con!rstVal.set!Deburr_Value_1(V.Screen.Form1!txtDV1.Text)
+F.ODBC.con!rstVal.set!Deburr_Value_2(V.Screen.Form1!txtDV2.Text)
+F.ODBC.con!rstVal.set!TimeSave_Runtime(V.Screen.Form1!txtTSRun.Text)
+F.ODBC.con!rstVal.set!TimeSave_Value1(V.Screen.Form1!txtTSV1.Text)
+F.ODBC.con!rstVal.set!Weld_Value1(V.Screen.Form1!txtWV1.Text)
+F.ODBC.con!rstVal.set!Polish_Value1(V.Screen.Form1!txtPV1.Text)
+F.ODBC.con!rstVal.set!Polish_Value2(V.Screen.Form1!txtPV2.Text)
+F.ODBC.con!rstVal.set!Inspec_Setup(V.Screen.Form1!txtISetup.Text)
+F.ODBC.con!rstVal.set!Sheet_Metal(V.Screen.Form1!txtSheetMetal.Text)
+F.ODBC.con!rstVal.set!RawMat_Setup(V.Screen.Form1!txtRMSetup.Text)
+F.ODBC.con!rstVal.set!RawMat_Runtime(V.Screen.Form1!txtRMRuntime.Text)
+F.ODBC.con!rstVal.Set!RAS_Setup(V.Screen.Form1!txtRAS.Text)
+
+F.ODBC.con!rstVal.Update
+
+F.ODBC.con!rstVal.Close
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmddone_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3701_Formula_Maint.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmddone_click.end
+
+program.sub.txtlsheetmetal_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtlsheetmetal_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sValue.Declare(String)
+V.Local.bRet.Declare(Boolean)
+
+'Check that the value is numeric
+
+V.Local.sValue.Set(V.Screen.Form1![v.args.controlname].text)
+
+F.Intrinsic.Math.IsNumeric(V.Local.sValue,V.Local.bRet)
+F.Intrinsic.Control.If(V.Local.bRet,!=,True)
+	F.Intrinsic.UI.Msgbox("Non-Numeric value entered!","Error")
+	Gui.Form1.[v.args.controlname].text("")
+	Gui.Form1.[v.args.controlname].SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtlsheetmetal_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3701_Formula_Maint.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtlsheetmetal_lostfocus.end
+
+Program.Sub.Comments.Start
+${$0$}$GCG_3701_Formula_Maint.$}$SKC$}$4/25/2016
+Program.Sub.Comments.End
+
